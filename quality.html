@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Quality | Shri Shyam Oil</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom CSS (Excluding Navbar & Footer as requested) -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* =========================================
+           ROOT VARIABLES & GLOBAL STYLES
+           ========================================= */
+        :root {
+            --sso-blue: #254184;
+            --sso-dark-blue: #162a5c;
+            --sso-orange: #F27F22;
+            --sso-yellow: #FDC010;
+            --sso-gradient: linear-gradient(135deg, #FDC010 0%, #F27F22 100%);
+
+            --sso-bg-light: #FDFBF7;
+            --sso-bg-white: #ffffff;
+            --sso-text-dark: #2C3338;
+            --sso-text-muted: #6B7280;
+
+            --sso-font-main: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--sso-font-main);
+            background-color: var(--sso-bg-light);
+            color: var(--sso-text-dark);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================================
+           QUALITY PAGE: HERO BANNER (CURVED)
+           ========================================= */
+        .sso-page-hero {
+            height: 60vh;
+            min-height: 450px;
+            background: linear-gradient(rgba(22, 42, 92, 0.85), rgba(37, 65, 132, 0.7)), url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-top: 0;
+        }
+
+        .sso-page-hero-content {
+            position: relative;
+            z-index: 2;
+            transform: translateY(-20px);
+        }
+
+        .sso-page-subtitle {
+            color: var(--sso-yellow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .sso-page-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 0;
+            letter-spacing: -1px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* SVG Curve */
+        .sso-hero-curve {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+
+        .sso-hero-curve svg {
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 80px;
+            transform: rotateY(180deg);
+        }
+
+        .sso-hero-curve .shape-fill {
+            fill: var(--sso-bg-white);
+        }
+
+        /* =========================================
+           SECTION HEADERS
+           ========================================= */
+        .sso-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sso-section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--sso-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .sso-section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--sso-dark-blue);
+            line-height: 1.2;
+        }
+
+        .sso-section-title span {
+            background: var(--sso-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* =========================================
+           QUALITY INTRO SECTION
+           ========================================= */
+        .sso-quality-intro {
+            padding: 80px 0 40px;
+            background-color: var(--sso-bg-white);
+            position: relative;
+            z-index: 5;
+            margin-top: -100px;
+        }
+
+        .sso-intro-text-box {
+            background: #fff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(37, 65, 132, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .sso-intro-text-box p {
+            font-size: 1.15rem;
+            color: var(--sso-text-muted);
+            line-height: 1.8;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           PROCESS TIMELINE (ZIG-ZAG)
+           ========================================= */
+        .sso-process-section {
+            padding: 80px 0 100px;
+            background-color: var(--sso-bg-white);
+        }
+
+        .sso-process-row {
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .sso-process-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .sso-process-img-wrap {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .sso-process-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .sso-process-row:hover .sso-process-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .sso-process-content {
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .sso-process-step-num {
+            position: absolute;
+            top: -50px;
+            left: 20px;
+            font-size: 8rem;
+            font-weight: 800;
+            color: rgba(37, 65, 132, 0.04);
+            z-index: 0;
+            line-height: 1;
+            transition: all 0.4s ease;
+        }
+
+        .sso-process-row:hover .sso-process-step-num {
+            color: rgba(242, 127, 34, 0.08);
+            transform: translateX(10px);
+        }
+
+        .sso-process-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--sso-dark-blue);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sso-process-content p {
+            font-size: 1.05rem;
+            color: var(--sso-text-muted);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sso-process-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--sso-gradient);
+            color: #fff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(242, 127, 34, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================================
+           CERTIFICATIONS & TRUST SECTION
+           ========================================= */
+        .sso-cert-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--sso-dark-blue) 0%, var(--sso-blue) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            margin: 0 20px 100px;
+            box-shadow: 0 30px 60px rgba(37, 65, 132, 0.2);
+        }
+
+        .sso-cert-section .sso-section-subtitle {
+            color: var(--sso-yellow);
+        }
+
+        .sso-cert-section .sso-section-title {
+            color: #fff;
+        }
+
+        .sso-cert-section .sso-section-title span {
+            color: var(--sso-orange);
+            -webkit-text-fill-color: initial;
+            background: none;
+        }
+
+        .sso-cert-section::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .sso-cert-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .sso-cert-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--sso-orange);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .sso-cert-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .sso-cert-icon img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .sso-cert-icon i {
+            font-size: 2.5rem;
+            background: var(--sso-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sso-cert-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .sso-cert-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* =========================================
+           RESPONSIVE ADJUSTMENTS
+           ========================================= */
+        @media (max-width: 991px) {
+            .sso-page-title {
+                font-size: 3.2rem;
+            }
+
+            .sso-process-img-wrap {
+                height: 350px;
+                margin-bottom: 30px;
+            }
+
+            .sso-process-content {
+                padding: 0 15px;
+                text-align: center;
+            }
+
+            .sso-process-icon {
+                margin: 0 auto 20px;
+            }
+
+            .sso-process-step-num {
+                left: 50%;
+                transform: translateX(-50%);
+                top: -30px;
+            }
+
+            .sso-process-row:hover .sso-process-step-num {
+                transform: translate(-50%, 10px);
+            }
+
+            .sso-process-row {
+                margin-bottom: 60px;
+                flex-direction: column;
+            }
+
+            /* Reverse order for mobile so image is always on top */
+            .sso-process-row:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sso-page-title {
+                font-size: 2.5rem;
+            }
+
+            .sso-intro-text-box {
+                padding: 30px 20px;
+            }
+
+            .sso-cert-section {
+                border-radius: 30px;
+                margin: 0 10px 60px;
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sso-process-img-wrap {
+                height: 250px;
+            }
+
+            .sso-section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR SECTION -->
+    <nav class="navbar navbar-expand-lg fixed-top sso-header-navbar" id="sso-main-nav">
+        <div class="container">
+            <a class="navbar-brand sso-brand-logo" href="index.html">
+                <img src="assets/images/logo/logo.png" alt="Shri Shyam Oil Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ssoNavbarContent"
+                aria-controls="ssoNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ssoNavbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="about-us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="quality.html">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="contact-us.html">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="contact-us.html" class="btn sso-contact-btn">Enquire Now <i
+                            class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- =========================================
+         QUALITY PAGE HERO BANNER
+         ========================================= -->
+    <section class="sso-page-hero">
+        <div class="container sso-page-hero-content">
+            <span class="sso-page-subtitle" id="gsap-hero-sub">Purity in Every Drop</span>
+            <h1 class="sso-page-title" id="gsap-hero-title">Our Quality <br>Standards</h1>
+        </div>
+        <!-- Sexy SVG Curve Bottom -->
+        <div class="sso-hero-curve">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- =========================================
+         QUALITY INTRO SECTION
+         ========================================= -->
+    <section class="sso-quality-intro">
+        <div class="container">
+            <div class="sso-intro-text-box" id="gsap-intro-box">
+                <p>
+                    At Shri Shyam Oil, we firmly believe that quality is not an act, but a habit. We refuse to
+                    compromise on the health of your family. That is why our manufacturing process completely avoids the
+                    use of harsh chemicals, excessive heat, and adulterants, ensuring what reaches your kitchen is 100%
+                    natural, heart-healthy mustard oil.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         PROCESS TIMELINE (ZIG-ZAG LAYOUT)
+         ========================================= -->
+    <section class="sso-process-section">
+        <div class="container">
+
+            <div class="sso-section-header" id="gsap-process-head">
+                <span class="sso-section-subtitle">How It's Made</span>
+                <h2 class="sso-section-title">The Kachi Ghani <span>Process</span></h2>
+            </div>
+
+            <!-- Step 1: Left Image, Right Text -->
+            <div class="row sso-process-row sso-anim-row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="sso-process-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Finest Mustard Seeds">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sso-process-content">
+                        <div class="sso-process-step-num">01</div>
+                        <div class="sso-process-icon"><i class="fas fa-seedling"></i></div>
+                        <h3>Sourcing the Finest Seeds</h3>
+                        <p>The secret to premium oil lies in the raw material. We handpick the finest, ripest, and
+                            healthiest black and yellow mustard seeds directly from trusted farmers across India. Every
+                            batch is rigorously checked for moisture and purity before it enters our facility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Right Image, Left Text -->
+            <div class="row sso-process-row sso-anim-row flex-lg-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="sso-process-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Traditional Cold Press">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sso-process-content">
+                        <div class="sso-process-step-num">02</div>
+                        <div class="sso-process-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Traditional Cold Pressing</h3>
+                        <p>We use the centuries-old 'Kachi Ghani' (cold-pressed) method. The seeds are crushed using
+                            wooden churners at extremely low temperatures. This ensures that the natural pungency,
+                            essential fatty acids (Omega 3 & 6), and natural antioxidants are completely retained.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Left Image, Right Text -->
+            <div class="row sso-process-row sso-anim-row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="sso-process-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1628194883441-df0713a2fa07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Micro Filtration">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sso-process-content">
+                        <div class="sso-process-step-num">03</div>
+                        <div class="sso-process-icon"><i class="fas fa-filter"></i></div>
+                        <h3>Chemical-Free Filtration</h3>
+                        <p>Unlike refined oils that use chemicals to clarify the liquid, we rely on a multi-stage
+                            mechanical micro-filtration process. This removes any solid impurities or seed husks while
+                            keeping the rich golden color and authentic nutritional value intact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Right Image, Left Text -->
+            <div class="row sso-process-row sso-anim-row flex-lg-row-reverse">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="sso-process-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1574315042614-2db2b70cd1aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Automated Packaging">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sso-process-content">
+                        <div class="sso-process-step-num">04</div>
+                        <div class="sso-process-icon"><i class="fas fa-box-open"></i></div>
+                        <h3>Hygienic Automated Packaging</h3>
+                        <p>Our packaging facility is state-of-the-art. From filling to sealing, the entire process is
+                            fully automated. The oil remains completely untouched by human hands, guaranteeing 100%
+                            hygiene and a longer shelf life for every bottle and tin we deliver.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================
+         CERTIFICATIONS & TRUST SECTION
+         ========================================= -->
+    <section class="sso-cert-section">
+        <div class="container">
+            <div class="sso-section-header" id="gsap-cert-head">
+                <span class="sso-section-subtitle">Verified & Approved</span>
+                <h2 class="sso-section-title">Certifications of <span>Trust</span></h2>
+            </div>
+
+            <div class="row">
+
+                <!-- Cert 1 -->
+                <div class="col-lg-3 col-md-6 mb-4 sso-cert-item">
+                    <div class="sso-cert-card">
+                        <div class="sso-cert-icon">
+                            <i class="fas fa-check-shield"></i>
+                        </div>
+                        <h4>FSSAI Approved</h4>
+                        <p>Fully compliant with all Indian food safety and standard regulations.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="col-lg-3 col-md-6 mb-4 sso-cert-item">
+                    <div class="sso-cert-card">
+                        <div class="sso-cert-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>100% Natural</h4>
+                        <p>Zero adulteration, zero argemone oil, and completely chemical-free.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="col-lg-3 col-md-6 mb-4 sso-cert-item">
+                    <div class="sso-cert-card">
+                        <div class="sso-cert-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>Lab Tested</h4>
+                        <p>Every batch undergoes strict laboratory testing before packaging.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="col-lg-3 col-md-6 mb-4 sso-cert-item">
+                    <div class="sso-cert-card">
+                        <div class="sso-cert-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Heart Healthy</h4>
+                        <p>Naturally rich in MUFA, PUFA, and vital Omega fatty acids.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER SECTION (Identical HTML)
+         ========================================= -->
+    <footer class="sso-footer">
+        <div class="container">
+
+            <div class="row justify-content-center sso-footer-cta-wrapper" id="gsap-footer-cta">
+                <div class="col-lg-10">
+                    <div class="sso-footer-cta">
+                        <div class="row align-items-center">
+                            <div class="col-md-8 mb-3 mb-md-0">
+                                <h3>Looking for Bulk Orders?</h3>
+                                <p>Get the best quality mustard oil directly from the manufacturer at the best prices.
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <a href="contact.html" class="btn sso-contact-btn text-dark">Contact Sales</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row sso-footer-main">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <img src="logo.jpeg" alt="Shri Shyam Oil Logo" class="sso-footer-logo">
+                    <p class="sso-footer-text mt-3">
+                        Delivering the purest and healthiest cold-pressed mustard oil straight from the farms to your
+                        family's table since 2000. Taste the tradition in every drop.
+                    </p>
+                    <div class="sso-footer-socials mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Quick Links</h4>
+                    <ul class="sso-footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> About Us</a></li>
+                        <li><a href="index.html#products"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Products</a></li>
+                        <li><a href="quality.html"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Quality</a></li>
+                        <li><a href="index.html#faq"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Contact Us</h4>
+                    <ul class="sso-footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Industrial Area, Phase 1, New Delhi, India - 110020</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 98765 43210 <br> +91 11 2345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@shrishyamoil.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Newsletter</h4>
+                    <p class="sso-footer-text">Subscribe to our newsletter to get the latest health tips, updates, and
+                        exclusive offers.</p>
+                    <form class="sso-footer-form mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email Address" required>
+                            <button class="btn sso-footer-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="sso-footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 Shri Shyam Oil. All Rights Reserved. Designed with <i
+                        class="fas fa-heart text-danger mx-1"></i> for Purity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         FLOATING CONTACT ICONS (Identical HTML)
+         ========================================= -->
+    <div class="sso-floating-contacts">
+        <a href="https://wa.me/919876543210" target="_blank" class="sso-float-icon sso-float-whatsapp"
+            title="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919876543210" class="sso-float-icon sso-float-call" title="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="mailto:info@shrishyamoil.com" class="sso-float-icon sso-float-email" title="Email Us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!-- SCRIPTS (Bootstrap & GSAP) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('sso-main-nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Floating Navbar Effect
+        window.addEventListener('scroll', function () {
+            const navWrapper = document.getElementById('sso-nav-wrapper');
+            if (navWrapper) {
+                if (window.scrollY > 50) {
+                    navWrapper.classList.add('scrolled');
+                } else {
+                    navWrapper.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero
+            gsap.from("#gsap-hero-sub", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" });
+            gsap.from("#gsap-hero-title", { y: 30, opacity: 0, duration: 0.8, delay: 0.2, ease: "power3.out" });
+            gsap.from(".sso-hero-curve", { y: 50, opacity: 0, duration: 1, delay: 0.4, ease: "power3.out" });
+
+            // Intro Box
+            gsap.from("#gsap-intro-box", {
+                scrollTrigger: { trigger: ".sso-quality-intro", start: "top 85%", toggleActions: "play none none reverse" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+
+            // Process Header
+            gsap.from("#gsap-process-head", {
+                scrollTrigger: { trigger: ".sso-process-section", start: "top 85%", toggleActions: "play none none reverse" },
+                y: 30, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+
+            // Process Rows Stagger
+            const processRows = document.querySelectorAll('.sso-anim-row');
+            processRows.forEach((row, index) => {
+                let imgWrap = row.querySelector('.sso-process-img-wrap');
+                let content = row.querySelector('.sso-process-content');
+
+                // Alternate animation direction based on zig-zag layout
+                let xOffset = index % 2 === 0 ? -50 : 50;
+
+                gsap.from(imgWrap, {
+                    scrollTrigger: { trigger: row, start: "top 75%", toggleActions: "play none none reverse" },
+                    x: xOffset, opacity: 0, duration: 1, ease: "power3.out"
+                });
+
+                gsap.from(content, {
+                    scrollTrigger: { trigger: row, start: "top 75%", toggleActions: "play none none reverse" },
+                    x: -xOffset, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2
+                });
+            });
+
+            // Certifications Header
+            gsap.from("#gsap-cert-head", {
+                scrollTrigger: { trigger: ".sso-cert-section", start: "top 85%", toggleActions: "play none none reverse" },
+                y: 30, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+
+            // Certifications Cards
+            gsap.from(".sso-cert-item", {
+                scrollTrigger: { trigger: ".sso-cert-section", start: "top 75%", toggleActions: "play none none reverse" },
+                y: 50, opacity: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)"
+            });
+
+            // Footer
+            gsap.from("#gsap-footer-cta", {
+                scrollTrigger: { trigger: ".sso-footer", start: "top 90%", toggleActions: "play none none reverse" },
+                y: 50, opacity: 0, duration: 0.8, ease: "back.out(1.2)"
+            });
+            gsap.from(".sso-footer-main > div", {
+                scrollTrigger: { trigger: ".sso-footer", start: "top 80%", toggleActions: "play none none reverse" },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+
+</html>
