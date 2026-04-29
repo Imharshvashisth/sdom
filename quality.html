@@ -58,7 +58,7 @@
            QUALITY PAGE: HERO BANNER (CURVED)
            ========================================= */
         .sso-page-hero {
-            height: 60vh;
+            height: 75vh;
             min-height: 450px;
             background: linear-gradient(rgba(22, 42, 92, 0.85), rgba(37, 65, 132, 0.7)), url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
             display: flex;
@@ -73,7 +73,7 @@
         .sso-page-hero-content {
             position: relative;
             z-index: 2;
-            transform: translateY(-20px);
+            transform: translateY(20px);
         }
 
         .sso-page-subtitle {
@@ -151,32 +151,109 @@
         }
 
         /* =========================================
-           QUALITY INTRO SECTION
+           QUALITY INTRO SECTION (REDESIGNED & PREMIUM)
            ========================================= */
         .sso-quality-intro {
-            padding: 80px 0 40px;
+            padding: 80px 0 60px;
             background-color: var(--sso-bg-white);
             position: relative;
             z-index: 5;
-            margin-top: -100px;
+            margin-top: -120px;
+            /* Overlap smoothly with hero */
         }
 
         .sso-intro-text-box {
             background: #fff;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(37, 65, 132, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.02);
+            border-radius: 40px;
+            box-shadow: 0 25px 60px rgba(37, 65, 132, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             text-align: center;
+            position: relative;
+            overflow: visible;
+            /* To allow floating icon outside */
+            padding: 60px 40px;
         }
 
-        .sso-intro-text-box p {
+        .sso-intro-text-box::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 5px;
+            background: var(--sso-gradient);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .sso-intro-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--sso-gradient);
+            color: #fff;
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 15px 35px rgba(242, 127, 34, 0.4);
+            border: 8px solid var(--sso-bg-white);
+            z-index: 3;
+        }
+
+        .sso-intro-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .sso-intro-heading {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--sso-dark-blue);
+            margin-bottom: 20px;
+            margin-top: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .sso-intro-content p {
             font-size: 1.15rem;
             color: var(--sso-text-muted);
-            line-height: 1.8;
+            line-height: 1.9;
             margin: 0;
-            max-width: 800px;
-            margin: 0 auto;
+        }
+
+        .sso-intro-content .highlight-text {
+            color: var(--sso-orange);
+            font-weight: 600;
+        }
+
+        .sso-intro-blob {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--sso-gradient);
+            filter: blur(50px);
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .sso-intro-blob.blob-1 {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .sso-intro-blob.blob-2 {
+            width: 250px;
+            height: 250px;
+            bottom: -50px;
+            right: -50px;
         }
 
         /* =========================================
@@ -404,7 +481,6 @@
                 flex-direction: column;
             }
 
-            /* Reverse order for mobile so image is always on top */
             .sso-process-row:nth-child(even) {
                 flex-direction: column;
             }
@@ -416,7 +492,20 @@
             }
 
             .sso-intro-text-box {
-                padding: 30px 20px;
+                padding: 50px 20px 40px;
+                margin-top: -60px;
+            }
+
+            .sso-intro-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+                top: -35px;
+                border-width: 5px;
+            }
+
+            .sso-intro-heading {
+                font-size: 1.8rem;
             }
 
             .sso-cert-section {
@@ -467,6 +556,7 @@
             </div>
         </div>
     </nav>
+
     <!-- =========================================
          QUALITY PAGE HERO BANNER
          ========================================= -->
@@ -487,17 +577,30 @@
     </section>
 
     <!-- =========================================
-         QUALITY INTRO SECTION
+         QUALITY INTRO SECTION (PREMIUM DESIGN)
          ========================================= -->
     <section class="sso-quality-intro">
         <div class="container">
             <div class="sso-intro-text-box" id="gsap-intro-box">
-                <p>
-                    At Shri Shyam Oil, we firmly believe that quality is not an act, but a habit. We refuse to
-                    compromise on the health of your family. That is why our manufacturing process completely avoids the
-                    use of harsh chemicals, excessive heat, and adulterants, ensuring what reaches your kitchen is 100%
-                    natural, heart-healthy mustard oil.
-                </p>
+                <!-- Decorative Blur Blobs -->
+                <div class="sso-intro-blob blob-1"></div>
+                <div class="sso-intro-blob blob-2"></div>
+
+                <!-- Floating Top Icon -->
+                <div class="sso-intro-icon">
+                    <i class="fas fa-droplet"></i>
+                </div>
+
+                <div class="sso-intro-content">
+                    <h3 class="sso-intro-heading">Our Promise of Purity</h3>
+                    <p>
+                        At <span class="text-dark fw-bold">Shri Shyam Oil</span>, we firmly believe that quality is not
+                        just an act, but a deeply ingrained habit. We refuse to compromise on the health of your family.
+                        That is why our manufacturing process completely avoids the use of harsh chemicals, excessive
+                        heat, and adulterants, ensuring what reaches your kitchen is <span class="highlight-text">100%
+                            natural, heart-healthy mustard oil</span>.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
