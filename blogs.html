@@ -58,7 +58,7 @@
            BLOG PAGE: HERO BANNER (CURVED)
            ========================================= */
         .sso-page-hero {
-            height: 60vh;
+            height: 75vh;
             min-height: 450px;
             background: linear-gradient(rgba(22, 42, 92, 0.85), rgba(37, 65, 132, 0.7)), url('https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
             display: flex;
@@ -692,6 +692,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('sso-main-nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Floating Navbar Effect
         window.addEventListener('scroll', function () {
             const navWrapper = document.getElementById('sso-nav-wrapper');
