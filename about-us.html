@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Shri Shyam Oil</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* =========================================
+           ROOT VARIABLES & GLOBAL STYLES
+           ========================================= */
+        :root {
+            --sso-blue: #254184;
+            --sso-dark-blue: #162a5c;
+            --sso-orange: #F27F22;
+            --sso-yellow: #FDC010;
+            --sso-gradient: linear-gradient(135deg, #FDC010 0%, #F27F22 100%);
+
+            --sso-bg-light: #FDFBF7;
+            /* Slightly warmer off-white for premium feel */
+            --sso-bg-white: #ffffff;
+            --sso-text-dark: #2C3338;
+            --sso-text-muted: #6B7280;
+
+            --sso-font-main: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--sso-font-main);
+            background-color: var(--sso-bg-white);
+            color: var(--sso-text-dark);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================================
+           ABOUT PAGE: HERO BANNER (CURVED & SEXY)
+           ========================================= */
+        .sso-page-hero {
+            height: 60vh;
+            min-height: 450px;
+            background: linear-gradient(rgba(22, 42, 92, 0.85), rgba(37, 65, 132, 0.7)), url('https://images.unsplash.com/photo-1590005024862-6b67679a29fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            margin-top: 0;
+        }
+
+        .sso-page-hero-content {
+            position: relative;
+            z-index: 2;
+            transform: translateY(-20px);
+        }
+
+        .sso-page-subtitle {
+            color: var(--sso-yellow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .sso-page-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 0;
+            letter-spacing: -1px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* The Sexy SVG Curve at the bottom */
+        .sso-hero-curve {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+
+        .sso-hero-curve svg {
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 80px;
+            transform: rotateY(180deg);
+        }
+
+        .sso-hero-curve .shape-fill {
+            fill: var(--sso-bg-white);
+        }
+
+        /* =========================================
+           ABOUT PAGE: OUR STORY SECTION & MORPHING BLOB
+           ========================================= */
+        .sso-story-section {
+            padding: 80px 0 120px;
+            background-color: var(--sso-bg-white);
+            position: relative;
+        }
+
+        /* Floating Stickers */
+        .sso-about-sticker {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 6px solid #fff;
+            z-index: 10;
+            animation: floatUpDown 6s ease-in-out infinite;
+            object-fit: cover;
+        }
+
+        .sso-sticker-1 {
+            top: -5%;
+            left: 0%;
+            width: 140px;
+            height: 140px;
+            animation-delay: 0s;
+        }
+
+        .sso-sticker-2 {
+            bottom: -5%;
+            right: 0%;
+            width: 180px;
+            height: 180px;
+            animation-delay: 3s;
+        }
+
+        /* Image Collage & Blob */
+        .sso-story-collage {
+            position: relative;
+            height: 550px;
+            z-index: 2;
+        }
+
+        .sso-blob-bg {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 80%;
+            height: 80%;
+            background: var(--sso-gradient);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            opacity: 0.15;
+            animation: morphBlob 10s ease-in-out infinite;
+            z-index: 0;
+            filter: blur(10px);
+        }
+
+        @keyframes morphBlob {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            50% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+        }
+
+        .sso-story-img-main {
+            width: 70%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(37, 65, 132, 0.15);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .sso-story-img-sub {
+            width: 60%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 2;
+            border: 8px solid #fff;
+        }
+
+        .sso-story-floating-badge {
+            position: absolute;
+            top: 35%;
+            right: -30px;
+            background: var(--sso-gradient);
+            color: #fff;
+            padding: 20px;
+            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(242, 127, 34, 0.4);
+            z-index: 3;
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        .sso-story-floating-badge h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .sso-story-floating-badge span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Content Styling */
+        .sso-story-heading {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--sso-dark-blue);
+            margin-bottom: 25px;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -1px;
+        }
+
+        .sso-story-heading span {
+            background: var(--sso-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sso-story-text {
+            font-size: 1.1rem;
+            color: var(--sso-text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sso-story-text-highlight {
+            font-size: 1.3rem;
+            color: var(--sso-dark-blue);
+            font-weight: 600;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            background: var(--sso-bg-light);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid var(--sso-orange);
+        }
+
+        .sso-story-text-highlight i {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 2rem;
+            color: var(--sso-yellow);
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        /* =========================================
+           ABOUT PAGE: VISION & MISSION (SEXY REFINED DESIGN)
+           ========================================= */
+        .sso-vm-section {
+            padding: 100px 0 120px;
+            background-color: var(--sso-bg-light);
+            position: relative;
+        }
+
+        /* Decorative background lines */
+        .sso-vm-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--sso-blue) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .sso-vm-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px 35px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Left edge elegant highlight */
+        .sso-vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--sso-gradient);
+            opacity: 0.7;
+            transition: all 0.4s ease;
+        }
+
+        .sso-vm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 65, 132, 0.08);
+            border-color: rgba(242, 127, 34, 0.15);
+        }
+
+        .sso-vm-card:hover::before {
+            opacity: 1;
+            width: 8px;
+        }
+
+        .sso-vm-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(242, 127, 34, 0.05);
+            color: var(--sso-orange);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .sso-vm-card:hover .sso-vm-icon {
+            background: var(--sso-gradient);
+            color: #fff;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 25px rgba(242, 127, 34, 0.25);
+        }
+
+        /* Large background icon for aesthetic watermark effect */
+        .sso-vm-bg-icon {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            font-size: 8rem;
+            color: rgba(37, 65, 132, 0.03);
+            z-index: -1;
+            transition: all 0.5s ease;
+            transform: rotate(-10deg);
+        }
+
+        .sso-vm-card:hover .sso-vm-bg-icon {
+            color: rgba(242, 127, 34, 0.06);
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .sso-vm-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--sso-dark-blue);
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .sso-vm-desc {
+            font-size: 1rem;
+            color: var(--sso-text-muted);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           ABOUT PAGE: COMPANY STATS (ANIMATED)
+           ========================================= */
+        .sso-stats-section {
+            background: linear-gradient(135deg, var(--sso-dark-blue) 0%, var(--sso-blue) 100%);
+            padding: 100px 0;
+            position: relative;
+            border-radius: 50px;
+            margin: 0 20px 100px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(37, 65, 132, 0.2);
+        }
+
+        .sso-stats-section::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .sso-stat-box {
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .col-lg-3:last-child .sso-stat-box {
+            border-right: none;
+        }
+
+        .sso-stat-number-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .sso-stat-number {
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: var(--sso-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+
+        .sso-stat-suffix {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--sso-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sso-stat-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* =========================================
+           RESPONSIVE ADJUSTMENTS
+           ========================================= */
+        @media (max-width: 991px) {
+            .sso-page-title {
+                font-size: 3.2rem;
+            }
+
+            .sso-story-collage {
+                height: 450px;
+                margin-bottom: 60px;
+            }
+
+            .sso-story-heading {
+                font-size: 2.6rem;
+            }
+
+            .sso-stat-box {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 30px 0;
+            }
+
+            .col-lg-3:last-child .sso-stat-box {
+                border-bottom: none;
+            }
+
+            .sso-stats-section {
+                margin: 0 0 80px;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sso-page-title {
+                font-size: 2.5rem;
+            }
+
+            .sso-story-collage {
+                height: 380px;
+            }
+
+            .sso-story-floating-badge {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+                right: -10px;
+            }
+
+            .sso-story-floating-badge h4 {
+                font-size: 1.4rem;
+            }
+
+            .sso-story-floating-badge span {
+                font-size: 0.7rem;
+            }
+
+            .sso-vm-card {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sso-story-collage {
+                height: 300px;
+            }
+
+            .sso-story-img-main {
+                width: 85%;
+            }
+
+            .sso-story-img-sub {
+                width: 65%;
+            }
+
+            .sso-story-heading {
+                font-size: 2.2rem;
+            }
+
+            .sso-stat-number {
+                font-size: 3.5rem;
+            }
+
+            .sso-stat-suffix {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR SECTION -->
+    <nav class="navbar navbar-expand-lg fixed-top sso-header-navbar" id="sso-main-nav">
+        <div class="container">
+            <a class="navbar-brand sso-brand-logo" href="index.html">
+                <img src="assets/images/logo/logo.png" alt="Shri Shyam Oil Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ssoNavbarContent"
+                aria-controls="ssoNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ssoNavbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="about-us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="quality.html">Quality</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="blogs.html">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link sso-nav-menu-item" href="contact-us.html">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="contact-us.html" class="btn sso-contact-btn">Enquire Now <i
+                            class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =========================================
+         ABOUT PAGE HERO BANNER
+         ========================================= -->
+    <section class="sso-page-hero">
+        <div class="container sso-page-hero-content">
+            <span class="sso-page-subtitle" id="gsap-hero-sub">Our Legacy</span>
+            <h1 class="sso-page-title" id="gsap-hero-title">The Story of <br>Shri Shyam Oil</h1>
+        </div>
+        <!-- Sexy SVG Curve Bottom -->
+        <div class="sso-hero-curve">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- =========================================
+         OUR STORY / JOURNEY SECTION
+         ========================================= -->
+    <section class="sso-story-section">
+        <!-- Floating Background Stickers -->
+        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+            alt="" class="sso-about-sticker sso-sticker-1">
+        <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+            alt="" class="sso-about-sticker sso-sticker-2">
+
+        <div class="container sso-about-container">
+            <div class="row align-items-center">
+
+                <!-- Left Side: Image Collage with Morphing Blob -->
+                <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5" id="gsap-story-imgs">
+                    <div class="sso-story-collage">
+                        <div class="sso-blob-bg"></div>
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="" class="sso-story-img-main">
+                        <img src="https://imgs.search.brave.com/QhyhwHPpF9ddyvQRpQL41hFeXDrxvaQvVxaLjZMdZPc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZGlhbDR0cmFkZS5j/b20vdXBsb2FkZWRf/ZmlsZXMvcHJvZHVj/dF9pbWFnZXMvdGh1/bWJzL21haGF0bWEt/Y29va2luZy1tdXN0/YXJkLW9pbC1vcmct/MTA4ODIwMjUyMjk2/OTM3MjkzMy5qcGc"
+                            alt="" class="sso-story-img-sub">
+                        <div class="sso-story-floating-badge">
+                            <h4>1995</h4>
+                            <span>Established</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Content -->
+                <div class="col-lg-6 ps-lg-5" id="gsap-story-content">
+                    <h2 class="sso-story-heading">A Heritage of <br><span>Purity & Taste</span></h2>
+
+                    <p class="sso-story-text">
+                        The journey of <strong>Shri Shyam Oil</strong> began decades ago with a simple, yet profound
+                        vision: to bring the unadulterated goodness of nature directly to the Indian kitchen. We started
+                        as a small, passionate team dedicated to preserving the traditional art of oil extraction.
+                    </p>
+
+                    <div class="sso-story-text-highlight">
+                        <i class="fas fa-quote-left"></i>
+                        We believe that real health is deeply rooted in our traditions. That's why we never compromise
+                        on the Kachi Ghani process.
+                    </div>
+
+                    <p class="sso-story-text">
+                        Over the years, we have grown from a local mill to a trusted household brand. Despite our growth
+                        and the adoption of modern, hygienic packaging technology, our core extraction process remains
+                        completely traditional. We carefully select the finest mustard seeds directly from Indian
+                        farmers, ensuring that every drop of oil retains its natural pungency, aroma, and rich
+                        nutrients.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         VISION & MISSION SECTION (REFINED & SEXY)
+         ========================================= -->
+    <section class="sso-vm-section">
+        <div class="container">
+            <div class="row">
+
+                <!-- Our Vision -->
+                <div class="col-lg-6 mb-4 mb-lg-0 sso-vm-card-wrapper">
+                    <div class="sso-vm-card">
+                        <!-- Background Watermark Icon -->
+                        <i class="fas fa-eye sso-vm-bg-icon"></i>
+
+                        <div class="sso-vm-icon"><i class="fas fa-eye"></i></div>
+                        <h3 class="sso-vm-title">Our Vision</h3>
+                        <p class="sso-vm-desc">
+                            To be the most trusted and preferred edible oil brand in every household. We envision a
+                            society where every family enjoys meals that are not only irresistibly delicious but also
+                            deeply nourishing, contributing to a healthier and happier lifestyle.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Our Mission -->
+                <div class="col-lg-6 sso-vm-card-wrapper">
+                    <div class="sso-vm-card">
+                        <!-- Background Watermark Icon -->
+                        <i class="fas fa-bullseye sso-vm-bg-icon"></i>
+
+                        <div class="sso-vm-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3 class="sso-vm-title">Our Mission</h3>
+                        <p class="sso-vm-desc">
+                            To consistently deliver 100% pure, natural, and chemical-free Kachi Ghani mustard oil. We
+                            are committed to supporting our local farmers, maintaining uncompromising quality standards,
+                            and employing sustainable practices in every step of our production.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         COMPANY STATS SECTION (JS ANIMATED)
+         ========================================= -->
+    <section class="sso-stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 sso-stat-item">
+                    <div class="sso-stat-box">
+                        <div class="sso-stat-number-wrapper">
+                            <span class="sso-stat-number sso-counter" data-target="20">0</span>
+                            <span class="sso-stat-suffix">+</span>
+                        </div>
+                        <div class="sso-stat-text">Years of Legacy</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 sso-stat-item">
+                    <div class="sso-stat-box">
+                        <div class="sso-stat-number-wrapper">
+                            <span class="sso-stat-number sso-counter" data-target="100">0</span>
+                            <span class="sso-stat-suffix">%</span>
+                        </div>
+                        <div class="sso-stat-text">Pure & Natural</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 sso-stat-item">
+                    <div class="sso-stat-box">
+                        <div class="sso-stat-number-wrapper">
+                            <span class="sso-stat-number sso-counter" data-target="5">0</span>
+                            <span class="sso-stat-suffix">M+</span>
+                        </div>
+                        <div class="sso-stat-text">Happy Families</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 sso-stat-item">
+                    <div class="sso-stat-box">
+                        <div class="sso-stat-number-wrapper">
+                            <span class="sso-stat-number sso-counter" data-target="500">0</span>
+                            <span class="sso-stat-suffix">+</span>
+                        </div>
+                        <div class="sso-stat-text">Retail Partners</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER SECTION
+         ========================================= -->
+    <footer class="sso-footer">
+        <div class="container">
+
+            <div class="row justify-content-center sso-footer-cta-wrapper" id="gsap-footer-cta">
+                <div class="col-lg-10">
+                    <div class="sso-footer-cta">
+                        <div class="row align-items-center">
+                            <div class="col-md-8 mb-3 mb-md-0">
+                                <h3>Looking for Bulk Orders?</h3>
+                                <p>Get the best quality mustard oil directly from the manufacturer at the best prices.
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <a href="#" class="btn sso-contact-btn text-dark">Contact Sales</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row sso-footer-main">
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <img src="logo.jpeg" alt="" class="sso-footer-logo">
+                    <p class="sso-footer-text mt-3">
+                        Delivering the purest and healthiest cold-pressed mustard oil straight from the farms to your
+                        family's table since 2000. Taste the tradition in every drop.
+                    </p>
+                    <div class="sso-footer-socials mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Quick Links</h4>
+                    <ul class="sso-footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> About Us</a></li>
+                        <li><a href="index.html#products"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Products</a></li>
+                        <li><a href="index.html#quality"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> Quality</a></li>
+                        <li><a href="index.html#faq"><i class="fas fa-chevron-right me-2 text-warning"
+                                    style="font-size: 0.8rem;"></i> FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Contact Us</h4>
+                    <ul class="sso-footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Industrial Area, Phase 1, New Delhi, India - 110020</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 98765 43210 <br> +91 11 2345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@shrishyamoil.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="sso-footer-heading">Newsletter</h4>
+                    <p class="sso-footer-text">Subscribe to our newsletter to get the latest health tips, updates, and
+                        exclusive offers.</p>
+                    <form class="sso-footer-form mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email Address" required>
+                            <button class="btn sso-footer-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="sso-footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 Shri Shyam Oil. All Rights Reserved. Designed with <i
+                        class="fas fa-heart text-danger mx-1"></i> for Purity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         FLOATING CONTACT ICONS (Right Bottom)
+         ========================================= -->
+    <div class="sso-floating-contacts">
+        <a href="https://wa.me/919876543210" target="_blank" class="sso-float-icon sso-float-whatsapp"
+            title="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919876543210" class="sso-float-icon sso-float-call" title="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="mailto:info@shrishyamoil.com" class="sso-float-icon sso-float-email" title="Email Us">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <!-- SCRIPTS (Bootstrap & GSAP) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Floating Navbar Effect
+        window.addEventListener('scroll', function () {
+            const navWrapper = document.getElementById('sso-nav-wrapper');
+            if (navWrapper) {
+                if (window.scrollY > 50) {
+                    navWrapper.classList.add('scrolled');
+                } else {
+                    navWrapper.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // GSAP Animations Initialize
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Animation
+            gsap.from("#gsap-hero-sub", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out" });
+            gsap.from("#gsap-hero-title", { y: 30, opacity: 0, duration: 0.8, delay: 0.2, ease: "power3.out" });
+            gsap.from(".sso-hero-curve", { y: 50, opacity: 0, duration: 1, delay: 0.4, ease: "power3.out" });
+
+            // Story Section Animation
+            gsap.from("#gsap-story-imgs", {
+                scrollTrigger: { trigger: ".sso-story-section", start: "top 75%", toggleActions: "play none none reverse" },
+                x: -60, opacity: 0, duration: 1.2, ease: "power3.out"
+            });
+            gsap.from("#gsap-story-content > *", {
+                scrollTrigger: { trigger: ".sso-story-section", start: "top 75%", toggleActions: "play none none reverse" },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"
+            });
+
+            // Vision & Mission Animation
+            gsap.from(".sso-vm-card-wrapper", {
+                scrollTrigger: { trigger: ".sso-vm-section", start: "top 80%", toggleActions: "play none none reverse" },
+                y: 60, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+            });
+
+            // Stats Animation & JS Counter
+            const counters = document.querySelectorAll('.sso-counter');
+
+            gsap.from(".sso-stat-item", {
+                scrollTrigger: {
+                    trigger: ".sso-stats-section",
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                    onEnter: () => {
+                        // Start counting when section enters
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            gsap.to(counter, {
+                                innerHTML: target,
+                                duration: 2.5,
+                                snap: { innerHTML: 1 },
+                                ease: "power2.out"
+                            });
+                        });
+                    }
+                },
+                y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+
+</html>
