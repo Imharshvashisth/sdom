@@ -150,7 +150,7 @@
             background: rgba(253, 251, 247, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 40px;
-            padding: 50px;
+            padding: 20px;
             box-shadow: 0 30px 60px rgba(37, 65, 132, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.8);
             text-align: center;
@@ -189,7 +189,7 @@
 
         .sso-main-image {
             max-width: 100%;
-            height: 480px;
+            height: 400px;
             object-fit: contain;
             position: relative;
             z-index: 2;
@@ -823,7 +823,7 @@
                     <div class="sso-prod-gallery">
                         <div class="sso-pure-badge"><i class="fas fa-check-circle"></i> 100% Kachi Ghani</div>
                         <!-- Default Image is 5 Litre Jar -->
-                        <img src="assets/images/products/pd-1.jpeg" alt="" class="sso-main-image" id="productImage">
+                        <img src="assets/images/products/5-litre.png" alt="" class="sso-main-image" id="productImage">
                     </div>
                 </div>
 
@@ -832,10 +832,6 @@
                     <div class="sso-prod-details">
                         <h1 class="sso-prod-title">Shri Shyam <span>Premium</span> Mustard Oil</h1>
 
-                        <!-- Dynamic Price Tag -->
-                        <div class="sso-price-tag">
-                            Starting from <span>₹199</span>
-                        </div>
 
                         <div class="sso-prod-rating">
                             <i class="fas fa-star"></i>
@@ -856,22 +852,27 @@
                         <div class="sso-size-selector-wrap">
                             <div class="sso-size-title"><i class="fas fa-box-open me-2"></i> Select Pack Size:</div>
                             <div class="sso-size-options">
+                                <!-- 500 ml -->
+                                <button class="sso-size-btn" data-img="assets/images/products/500-ml.png">
+                                    500 Ml
+                                    <span class="pack-type">PET Bottle</span>
+                                </button>
                                 <!-- 1 Litre -->
-                                <button class="sso-size-btn" data-img="assets/images/products/pd-1.jpeg">
+                                <button class="sso-size-btn" data-img="assets/images/products/1-litre.png">
                                     1 Litre
                                     <span class="pack-type">PET Bottle</span>
                                 </button>
 
-                                <!-- 5 Litre (Default Active) -->
-                                <button class="sso-size-btn active" data-img="assets/images/products/pd-2.jpeg">
-                                    5 Litre
+                                <!-- 2 Litre (Default Active) -->
+                                <button class="sso-size-btn active" data-img="assets/images/products/2-litre.png">
+                                    2 Litre
                                     <span class="pack-type">Premium Jar</span>
                                 </button>
 
-                                <!-- 15 Litre -->
-                                <button class="sso-size-btn" data-img="assets/images/products/pd-3.jpeg">
-                                    15 Litre
-                                    <span class="pack-type">Family Tin</span>
+                                <!-- 5 Litre -->
+                                <button class="sso-size-btn" data-img="assets/images/products/5-litre.png">
+                                    5 Litre
+                                    <span class="pack-type">Family Jar</span>
                                 </button>
                             </div>
                         </div>
